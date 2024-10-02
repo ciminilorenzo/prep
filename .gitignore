@@ -9,7 +9,6 @@ hs_err_pid*
 
 
 ## Gradle
-.gradle
 **/build/
 !src/**/build/
 gradle-app.setting
@@ -17,8 +16,6 @@ gradle-app.setting
 !gradle-wrapper.properties
 .gradletasknamecache
 gradle/
-gradlew
-gradlew.bat
 
 
 ## Visual Studio Code
