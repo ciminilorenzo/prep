@@ -16,6 +16,7 @@ gradle-app.setting
 !gradle-wrapper.properties
 .gradletasknamecache
 gradle/
+.gradle
 
 
 ## Visual Studio Code
