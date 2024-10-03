@@ -4,29 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BinarySearch {
-
-    /* 
-    Rock jumping: IMC OA 
-        
-    You need to cross a river by jumping on rocks, and some rocks may get submerged as water rises. Each rock has a height, 
-    and the water level starts to rise after you make your first jump. The goal is to determine the maximum water level such
-    that you can still jump across the river without exceeding the maximum jump distance (maxJump) and total energy (maxEnergy).
-        
-    Return 10^9 if it's always possible.
-        
-    Constraints:
-        1.	You can jump a maximum of maxJump distance at once.
-	    2.	The total energy used in your jumps cannot exceed maxEnergy. The energy to jump between two positions is 
-            equal to the square of the distance.
-        3.	A rock is submerged if the water level is equal to or greater than its height, making it unusable for jumps.
-
-    Inputs:
-	    width: The width of the river (distance from x = 0 to x = width).
-	    numRocks: Number of rocks in the river.
-	    maxJump: Maximum jump distance.
-	    maxEnergy: Maximum total energy you can use.
-	    Two arrays: x: The x-coordinates of the rocks; height: The height of each rock (in non-decreasing order)
-    */
+    
+    // rockJumping - IMC (look the problem's description up in the README)
     public static double rockJumping(int width, int[] heights, int[] rocks, int maxEnergy, int maxJump) throws Exception {
         // let's see if we can jump at least on the first rock
         if (Math.pow(rocks[0], 2) > maxEnergy || rocks[0] > maxJump) return -1;
