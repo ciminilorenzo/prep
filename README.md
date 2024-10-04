@@ -10,7 +10,7 @@ You need to cross a river by jumping on rocks, and some rocks may get submerged 
 and the water level starts to rise after you make your first jump. The goal is to determine the maximum water level such
 that you can still jump across the river without exceeding the maximum jump distance (maxJump) and total energy (maxEnergy).
         
-Retgit urn 10^9 if it's always possible, -1 if it's never possible or the maximum water level.
+Return urn 10^9 if it's always possible, -1 if it's never possible or the maximum water level.
         
 Constraints:
 1. You can jump a maximum of maxJump distance at once.
