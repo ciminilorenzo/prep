@@ -2,9 +2,9 @@ Just random exercises taken from [FastPrep](https://www.fastprep.io/dashboard/pr
 
 Some exercises don't have a public solution at the time of writing this, thus feel free to give me feedback whether you want to know more about a specific exercise or if you don't think my solution is the best approach. Moreover, solutions are not tested against any possible test case but only with those available in the problem description (look them up in test/).
 
-
+The listed exercises below are not (still) present within FastPrep but present in this repo:
 <details>
-<summary>Rock jumping: IMC OA </summary>
+<summary>Rock jumping: IMC OA | Greedy </summary>
   
 You need to cross a river by jumping on rocks, and some rocks may get submerged as water rises. Each rock has a height, 
 and the water level starts to rise after you make your first jump. The goal is to determine the maximum water level such
