@@ -2,6 +2,7 @@ package prep;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 public class BinarySearch {
     
@@ -44,7 +45,7 @@ public class BinarySearch {
         throw new Exception("exception"); // not reachable
     }
 
-    public static boolean isGoalReachable(int width, List<Integer> rocks, int maxEnergy, int maxJump) {
+    private static boolean isGoalReachable(int width, List<Integer> rocks, int maxEnergy, int maxJump) {
         int pos = 0;
         int energyLeft = maxEnergy;
 
@@ -58,4 +59,67 @@ public class BinarySearch {
         // last jump
         return Math.pow(width - pos, 2) <= energyLeft && width - pos <= maxJump;
     }
+
+    // https://www.fastprep.io/problems/amazon-num-of-suitable-places
+    public static int numberOfSuitablePlaces(int[] center, int d) {
+        Arrays.sort(center);
+
+        int leftExtreme = findLeftExtreme(center, d);
+        int rightExtreme = findRightExtreme(center, d);
+
+        if (leftExtreme == 1_000_000_000 - 1 || rightExtreme == 1_000_000_000 + 1) {
+            return 0;
+        }
+
+        return rightExtreme - leftExtreme + 1;
+    }
+
+    public static int findLeftExtreme(int[] center, int d) {
+        int left = - 1_000_000_000;
+        int right = center[center.length - 1];
+
+        while (left < right) {
+            int mid = (left + right - 1) / 2;
+
+            boolean isSpotSuitable = isSpotSuitable(mid, center, d);
+
+            if (isSpotSuitable) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        
+        return isSpotSuitable(right, center, d) ? right : 1_000_000_000 - 1;
+    }
+
+    public static int findRightExtreme(int[] center, int d) {
+        int left = center[0];
+        int right = 1_000_000_000;
+
+        while (left < right) {
+            int mid = (left + right + 1) / 2;
+
+            boolean isSpotSuitable = isSpotSuitable(mid, center, d);
+            
+            if (isSpotSuitable) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+            
+        }
+        
+        return isSpotSuitable(left, center, d) ? left : 1_000_000_000 + 1;
+    }
+    
+   public static boolean isSpotSuitable(double pos, int[] center, int d) {
+       for (int spot : center) {
+           d -= 2 * Math.abs(pos - spot);
+
+           if (d < 0) return false;
+       }
+       
+       return true;
+   }
 }

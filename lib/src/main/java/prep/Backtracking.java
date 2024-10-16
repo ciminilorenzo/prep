@@ -33,6 +33,8 @@ public class Backtracking {
         int res = 0;
 
         for (int dir : dirs) {
+            if (idx + dir < 0 || idx + dir >= walls.length) continue;
+
             int nextWallCoordinate = (int) walls[idx + dir];
             int energyRequiredToMove = (int) Math.abs(myCoordinate - nextWallCoordinate);
             int energyRequiredToHit = (int) thickness[idx + dir];

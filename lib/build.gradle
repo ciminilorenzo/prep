@@ -7,10 +7,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation libs.junit.jupiter
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    api libs.commons.math3
-    implementation libs.guava
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.2' // Use testImplementation
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.11.2' // Corrected to testImplementation
+    implementation 'org.apache.commons:commons-math3:3.0'
 }
 
 java {
@@ -21,4 +21,5 @@ java {
 
 tasks.named('test') {
     useJUnitPlatform()
+    testLogging.showStandardStreams = true
 }
