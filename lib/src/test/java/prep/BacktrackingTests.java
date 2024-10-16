@@ -1,11 +1,25 @@
 package prep;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
 
-import static prep.Backtracking.maxWallHits;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import static prep.Backtracking.*;
+
+import java.util.stream.Stream;
 
 class BacktrackingTests {
+
+    private static Stream<Arguments> provideInputForGoogleCountCodeWithSum() {
+        return Stream.of(
+            Arguments.of(4, 35),
+            Arguments.of(35, 4),
+            Arguments.of(10, 2)
+        );
+    }
     
     @Test 
     void testsMaxHitWallsWorks() {
@@ -16,4 +30,11 @@ class BacktrackingTests {
 
         assertEquals(output, maxWallHits(walls, thickness, maxEnergy));
     }
+
+    @ParameterizedTest
+    @MethodSource("provideInputForGoogleCountCodeWithSum")
+    void testGoogleCountCodeWithSum(int expected, int s) {
+        assertEquals(expected, googleCountCodeWithSum(s));
+    }
+
 }

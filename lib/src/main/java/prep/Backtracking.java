@@ -27,7 +27,7 @@ public class Backtracking {
         return backtracking(start_idx, walls, thickness, maxEnergy);
     }
 
-    public static int backtracking(int idx, float[] walls, int[] thickness, int maxEnergy) {
+    private static int backtracking(int idx, float[] walls, int[] thickness, int maxEnergy) {
         int myCoordinate = (int) walls[idx];
         int [] dirs = new int[]{1, -1}; 
         int res = 0;
@@ -44,5 +44,24 @@ public class Backtracking {
             } 
         }
         return res;
+    }
+
+    // https://www.fastprep.io/problems/google-count-code-with-sum
+    public static int googleCountCodeWithSum(int s) {
+        return findCodes(s, 0, 0);
+    }
+
+    private static int findCodes(int s, int totalCount, int digits) {
+        if (digits > 4 || totalCount > s) return 0;
+
+        if (digits == 4 && totalCount == s) return 1;
+
+        int current = 0;
+
+        for (int digit = 0; digit <= 9; digit ++) {
+            current += findCodes(s, totalCount + digit, digits + 1);
+        }
+
+        return current;
     }
 }
