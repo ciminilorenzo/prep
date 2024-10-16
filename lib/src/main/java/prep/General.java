@@ -28,4 +28,17 @@ public class General {
 
         return res;
     }
+
+    public static int googleScoreToken(int[] points, String tokens) {
+        int score = 0;
+
+        for (int idx = 0; idx < points.length; idx++) {
+            if (tokens.charAt(idx) == 'T') {
+                score += points[idx];
+                
+                if (idx < points.length - 1 && tokens.charAt(idx + 1) == 'T') score += 1;  
+            }
+        }
+        return score;
+    } 
 }

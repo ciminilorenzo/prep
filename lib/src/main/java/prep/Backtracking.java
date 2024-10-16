@@ -40,7 +40,10 @@ public class Backtracking {
             int energyRequiredToHit = (int) thickness[idx + dir];
 
             if (maxEnergy >= energyRequiredToHit + energyRequiredToMove) {
-                res = max(res, 1 + backtracking(idx + dir, walls, thickness, maxEnergy - (energyRequiredToHit + energyRequiredToMove)));
+                res = max(
+                    res, 
+                    1 + backtracking(idx + dir, walls, thickness, maxEnergy - (energyRequiredToHit + energyRequiredToMove))
+                );
             } 
         }
         return res;
