@@ -2,7 +2,7 @@ Just random exercises taken from [FastPrep](https://www.fastprep.io/dashboard/pr
 
 Some exercises don't have a public solution at the time of writing this, thus feel free to give me feedback whether you want to know more about a specific exercise or if you don't think my solution is the best approach. Moreover, solutions are not tested against any possible test case but only with those available in the problem description (look them up in test/).
 
-The listed exercises below are not (still) present within FastPrep but present in this repo:
+The listed exercises below are not (still?) present within FastPrep but present in this repo:
 <details>
 <summary>Rock jumping: IMC OA | Greedy </summary>
   
@@ -24,5 +24,15 @@ Inputs:
 3. maxJump: Maximum jump distance.
 4. maxEnergy: Maximum total energy you can use.
 5. Two arrays: x: The x-coordinates of the rocks; height: The height of each rock (in non-decreasing order)
+</details>
+
+<details>
+<summary>Friend recommendation system : IMC OA | Graphs </summary>
+  
+There are `n` users, labelled from 0 up to `n` - 1, and `m` friendships represented as a 2D array where the Ith friendship is a connection between users `friendships[i][0]` & `friendships[i][1]`.
+
+User `x` is suggested as a friend to user `y` if they are not friends and share the maximum number of common friends. If there are multiple such users, the one with the minimum index is suggested. 
+
+Given `n` friends and m friendships, find the index of the user that should be recommended as a new friend to each user. If there is not any recommendation, return -1.
 </details>
     

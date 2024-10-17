@@ -14,9 +14,9 @@ class GeneralTests {
 
     private static Stream<Arguments> provideInputForGoogleScoreTokenTest() {
         return Stream.of(
-            Arguments.of(new int[]{3, 4, 5, 2, 3},  "TEETT", 9),
-            Arguments.of(new int[]{3, 2, 1, 2, 2},  "ETTTE", 7),
-            Arguments.of(new int[]{2, 2, 2, 2},  "TTTT", 11)
+            Arguments.of(new int[]{3, 4, 5, 2, 3}, "TEETT", 9),
+            Arguments.of(new int[]{3, 2, 1, 2, 2}, "ETTTE", 7),
+            Arguments.of(new int[]{2, 2, 2, 2}, "TTTT", 11)
         );
     }
     
