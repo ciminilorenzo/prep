@@ -1,14 +1,13 @@
 package prep;
 
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static prep.Graphs.friendRecommendationSystem;
-
-import java.util.stream.Stream;
 
 public class GraphsTests {
 
@@ -20,7 +19,7 @@ public class GraphsTests {
                 new int[]{1, 3}, 
                 new int[]{2, 3}, 
                 new int[]{3, 4}
-            }, 5, 5),
+            }, 5, 5, new int[]{3, 2, 1, 0, 1}),
             Arguments.of(new int[][]{
                 new int[]{0, 1}, 
                 new int[]{0, 2}, 

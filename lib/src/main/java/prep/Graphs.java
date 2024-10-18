@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Graphs {
     
-    // Friend recommendation prototype (look the problem descrition up in the README)
+    // Friend recommendation prototype (look the problem description up in the README)
     public static int[] friendRecommendationSystem(int n, int m, int[][] friendships) {
         Map<Integer, Set<Integer>> graph = new HashMap<>(friendships.length);
 
@@ -22,6 +22,11 @@ public class Graphs {
         int[] result = new int[n];
 
         for (int currentUser = 0; currentUser < n; currentUser++) {
+            if (!graph.containsKey(currentUser)) {
+                result[currentUser] = -1;
+                continue;
+            }
+
             Map<Integer, Integer> currentUserFriendsFriends = new HashMap<>();
             int recommendedIndex = -1;
             int recommendedValue = -1;
