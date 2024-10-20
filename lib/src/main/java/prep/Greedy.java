@@ -1,7 +1,10 @@
 package prep;
 
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
 
 class Greedy {
 
@@ -35,5 +38,57 @@ class Greedy {
             minHeap.add(new int[]{new_throughput, service_idx});
         }
         return minHeap.poll()[0];
+    }
+
+    // Task Scheduling
+    // https://www.fastprep.io/problems/hackerland-get-min-cost
+    public static int snowflakegetMinCost(int[] cost, int[] time) {
+        int totalCost = 0;
+        
+        Queue<Integer> minPriorityQueue = new PriorityQueue<>(
+            Comparator
+                .comparingInt((Integer idx) -> cost[idx])
+                .thenComparing((Integer firstIdx, Integer secondIdx) -> Integer.compare(time[secondIdx], time[firstIdx]))
+        );
+
+        Queue<Integer> maxPriorityQueue = new PriorityQueue<>(
+            Comparator
+                .comparingInt((Integer idx) -> cost[idx])
+                .thenComparingInt((Integer firstIdx) -> time[firstIdx])
+                .reversed()
+        );
+
+        for (int idx = 0; idx < cost.length; idx++) {
+            minPriorityQueue.add(idx);
+            maxPriorityQueue.add(idx);
+        }
+
+        Set<Integer> seenIndexes = new HashSet<>(cost.length);
+
+        while (! minPriorityQueue.isEmpty()) {
+            int currIdx = minPriorityQueue.poll();
+
+            if (seenIndexes.contains(currIdx)) continue;
+
+            int currCost = cost[currIdx];
+            int currTime = time[currIdx];
+
+            seenIndexes.add(currIdx);
+
+            while (currTime > 0 && ! maxPriorityQueue.isEmpty()) {
+                int freeIdx = maxPriorityQueue.poll();
+                
+                if (seenIndexes.contains(freeIdx)) {
+                    continue;
+                }
+
+                seenIndexes.add(freeIdx);
+                currTime -= 1;
+            }
+
+            totalCost += currCost;
+        }
+        
+        return totalCost;
     }
 }
